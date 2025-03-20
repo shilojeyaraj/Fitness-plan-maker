@@ -1,0 +1,349 @@
+:root {
+    --primary-color: #ff4d4d;
+    --secondary-color: #333333;
+    --accent-color: #ffd700;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --dark-bg: #222;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/static/gym-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.form-group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #ff3333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+}
+
+/* Results page styles */
+.results-header {
+    background: var(--secondary-color);
+    margin: -30px -30px 30px -30px;
+    padding: 30px;
+    border-radius: 15px 15px 0 0;
+    color: white;
+}
+
+.results-header h1 {
+    color: white;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.back-button {
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.back-button:hover {
+    background: #ffed4a;
+    transform: translateY(-2px);
+}
+
+.user-details {
+    background: linear-gradient(135deg, var(--light-bg), white);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.user-details h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.user-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.user-details li {
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--accent-color);
+}
+
+.plan-section-title {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.plan-sections {
+    display: grid;
+    gap: 30px;
+}
+
+.workout-section, .nutrition-section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.workout-section h3, .nutrition-section h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.workout-content, .nutrition-content {
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.workout-content ul, .nutrition-content ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.workout-content li, .nutrition-content li {
+    margin-bottom: 10px;
+}
+
+.meal-plan {
+    margin-bottom: 30px;
+}
+
+.shopping-list {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.shopping-list h4 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.print-button, .new-plan-button {
+    width: auto;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.print-button {
+    background: var(--accent-color);
+    color: var(--dark-bg);
+}
+
+.new-plan-button {
+    background: var(--primary-color);
+    color: white;
+}
+
+.print-button:hover {
+    background: #ffed4a;
+}
+
+.new-plan-button:hover {
+    background: #ff3333;
+}
+
+.error-message {
+    background: #fff3f3;
+    color: #dc3545;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #dc3545;
+    margin: 20px 0;
+}
+
+/* Form hints and small text */
+.form-hint {
+    color: #666;
+    font-size: 0.85em;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* Currency input styling */
+.input-with-currency {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.input-with-currency input {
+    padding-left: 25px;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+    
+    .container {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .action-buttons, .back-button {
+        display: none;
+    }
+    
+    .results-header {
+        background: none;
+        color: var(--text-color);
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    .results-header h1 {
+        color: var(--text-color);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .user-details ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .plan-sections {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .plan-sections {
+        grid-template-columns: 1fr;
+    }
+}
