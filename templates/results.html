@@ -20,9 +20,8 @@
         </div>
         {% endif %}
 
-        {% if workout_plan and meal_plan %}
+        {% if workout_plan %}
         <div class="results-content">
-            <!-- User Details Section -->
             <div class="user-details">
                 <h2>Your Details</h2>
                 <ul>
@@ -37,9 +36,8 @@
                 </ul>
             </div>
 
-            <!-- Weekly Plan Section -->
             <div class="plan-content">
-                <h2 class="plan-section-title">Your Weekly Fitness Plan</h2>
+                <h2 class="plan-section-title">Your Fitness Plan</h2>
                 <div class="plan-sections">
                     {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
                     <div class="daily-plan">
@@ -58,6 +56,19 @@
                                         {% for meal in meal_plan[day] %}
                                             {{ meal.description | safe }}
                                         {% endfor %}
+                                        {% if day == 'Sunday' %}
+                                            <div class="nutrition-notes">
+                                                <h4>Weekly Nutrition Notes</h4>
+                                                <p>This plan emphasizes balanced nutrition while considering your preferences and restrictions. Key points:</p>
+                                                <ul>
+                                                    <li>Meals are designed to fit within your {{ cooking_time }} minute cooking time</li>
+                                                    <li>Budget-friendly options selected to meet your ${{ food_budget }} monthly budget</li>
+                                                    <li>{{ meals_per_day }} meals per day to support your {{ goal }} goal</li>
+                                                    <li>Accommodates your {{ diet }} dietary preferences</li>
+                                                </ul>
+                                                <p>Remember to adjust portions and timing based on your schedule and preferences.</p>
+                                            </div>
+                                        {% endif %}
                                     {% else %}
                                         <p>No meal plan available for this day</p>
                                     {% endif %}
@@ -69,7 +80,6 @@
                 </div>
             </div>
 
-            <!-- Shopping List Section -->
             <div class="shopping-list-section">
                 <h2>Weekly Shopping List & Budget Breakdown</h2>
                 <div class="shopping-list-content">
@@ -86,7 +96,6 @@
     </div>
 
     <script>
-        // Handle page breaks for printing
         window.onbeforeprint = function() {
             const contentBlocks = document.querySelectorAll('.daily-plan, .shopping-list-section');
             contentBlocks.forEach(block => {
@@ -96,8 +105,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 

@@ -551,3 +551,32 @@ button:hover {
     padding-bottom: 8px;
     border-bottom: 2px solid var(--accent-color);
 }
+
+.nutrition-notes {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.nutrition-notes h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.nutrition-notes ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.nutrition-notes li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.nutrition-notes p {
+    margin: 10px 0;
+    color: var(--secondary-color);
+}
