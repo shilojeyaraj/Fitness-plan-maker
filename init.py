@@ -72,7 +72,7 @@ async def generate_fitness_plan(
         
         prompt = f"""
         Create a personalized fitness and nutrition plan for a {age}-year-old,
-        weighing {weight}kg, height {height}cm. 
+        weighing {weight}lbs, height {height}cm. 
         Goal: {goal}.
         Dietary restrictions: {diet}.
         Please provide:

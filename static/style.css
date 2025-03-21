@@ -9,8 +9,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('/static/gym-background.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                linear-gradient(45deg, #1a1a1a, #2c2c2c);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -20,15 +20,23 @@ body {
     min-height: 100vh;
 }
 
-.container {
-    max-width: 800px;
+.home_container {
+    max-width: 800px;  /* Increased from 1400px;  /* Increased from 800px */
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
+.container {
+    max-width: 1400px;  /* Increased from 800px */
+    max-width: 1400px;  /* Increased from 800px */
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 h1 {
     color: var(--primary-color);
     text-transform: uppercase;
@@ -75,6 +83,30 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     border-color: var(--primary-color);
     outline: none;
+}
+
+select#gender {
+    background-color: white;
+    cursor: pointer;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+select#gender:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+select#gender option {
+    padding: 10px;
 }
 
 button {
@@ -171,55 +203,149 @@ button:hover {
 }
 
 .plan-sections {
-    display: grid;
-    gap: 30px;
+    display: block;  /* Changed from grid to block */
+    margin-top: 30px;
 }
 
-.workout-section, .nutrition-section {
+.daily-plan {
+    margin-bottom: 30px;
     background: white;
+    padding: 20px;
     border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.workout-section h3, .nutrition-section h3 {
+.daily-plan h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.daily-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.workout-block,
+.nutrition-block {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.workout-block h4,
+.nutrition-block h4 {
     color: var(--secondary-color);
     margin-top: 0;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--accent-color);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.meal-plan,
+.shopping-list {
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 8px;
+}
+
+.shopping-list h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.nutrition-content ul,
+.workout-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.workout-content li,
+.nutrition-content li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.workout-content li {
+    border-left: 3px solid var(--primary-color);
+}
+
+.nutrition-content li {
+    border-left: 3px solid var(--accent-color);
+}
+
+.cost-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
 }
 
 .workout-content, .nutrition-content {
-    line-height: 1.8;
-    white-space: pre-line;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .workout-content ul, .nutrition-content ul {
-    padding-left: 20px;
-    margin: 15px 0;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
 }
 
 .workout-content li, .nutrition-content li {
     margin-bottom: 10px;
+    padding: 10px;
+    background: var(--light-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-color);
 }
 
 .meal-plan {
     margin-bottom: 30px;
 }
 
-.shopping-list {
-    background: var(--light-bg);
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
+.shopping-list-section {
+    margin-top: 50px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    page-break-before: always;
 }
 
-.shopping-list h4 {
-    color: var(--secondary-color);
+.shopping-list-section h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.shopping-list-content {
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.shopping-list-content h4 {
+    color: var(--primary-color);
+    margin: 20px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.shopping-list-content h4:first-child {
     margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.1em;
 }
 
 .action-buttons {
@@ -318,6 +444,14 @@ button:hover {
     .results-header h1 {
         color: var(--text-color);
     }
+
+    .shopping-list-section {
+        page-break-before: always;
+    }
+
+    .daily-plan {
+        page-break-inside: avoid;
+    }
 }
 
 /* Responsive design */
@@ -336,14 +470,84 @@ button:hover {
 }
 
 /* Responsive adjustments */
-@media (min-width: 768px) {
-    .plan-sections {
-        grid-template-columns: 1fr 1fr;
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .daily-content {
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 767px) {
-    .plan-sections {
-        grid-template-columns: 1fr;
+.plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.plan-table th, .plan-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.plan-table th {
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: uppercase;
+}
+
+.plan-table td {
+    background-color: #f9f9f9;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .shopping-list-section {
+        margin-top: 30px;
+        padding: 20px;
     }
+}
+
+.meal-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.meal-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.meal-description {
+    flex: 1;
+}
+
+.meal-description ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.meal-description li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.nutrition-content {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Add specific styling for h4 headers */
+.workout-block h4, .nutrition-block h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-color);
 }

@@ -20,13 +20,14 @@
         </div>
         {% endif %}
 
-        {% if plan %}
+        {% if workout_plan and meal_plan %}
         <div class="results-content">
+            <!-- User Details Section -->
             <div class="user-details">
                 <h2>Your Details</h2>
                 <ul>
                     <li>Age: {{ age }} years</li>
-                    <li>Weight: {{ weight }} kg</li>
+                    <li>Weight: {{ weight }} lbs</li>
                     <li>Height: {{ height }} cm</li>
                     <li>Goal: {{ goal }}</li>
                     <li>Diet: {{ diet }}</li>
@@ -36,28 +37,43 @@
                 </ul>
             </div>
 
+            <!-- Weekly Plan Section -->
             <div class="plan-content">
-                <h2 class="plan-section-title">Your Fitness Plan</h2>
+                <h2 class="plan-section-title">Your Weekly Fitness Plan</h2>
                 <div class="plan-sections">
-                    <div class="workout-section">
-                        <h3>Weekly Workout Schedule</h3>
-                        <div class="workout-content">
-                            {{ plan | safe }}
+                    {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                    <div class="daily-plan">
+                        <h3>{{ day }}</h3>
+                        <div class="daily-content">
+                            <div class="workout-block">
+                                <h4>Workout Plan</h4>
+                                <div class="workout-content">
+                                    {{ workout_plan[day] | safe }}
+                                </div>
+                            </div>
+                            <div class="nutrition-block">
+                                <h4>Nutrition Plan</h4>
+                                <div class="nutrition-content">
+                                    {% if meal_plan and day in meal_plan %}
+                                        {% for meal in meal_plan[day] %}
+                                            {{ meal.description | safe }}
+                                        {% endfor %}
+                                    {% else %}
+                                        <p>No meal plan available for this day</p>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="nutrition-section">
-                        <h3>Nutrition & Diet Plan</h3>
-                        <div class="nutrition-content">
-                            <div class="meal-plan">
-                                {{ meal_plan | safe }}
-                            </div>
-                            <div class="shopping-list">
-                                <h4>Shopping List & Budget</h4>
-                                {{ shopping_list | safe }}
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Shopping List Section -->
+            <div class="shopping-list-section">
+                <h2>Weekly Shopping List & Budget Breakdown</h2>
+                <div class="shopping-list-content">
+                    {{ shopping_list | safe }}
                 </div>
             </div>
 
@@ -68,6 +84,20 @@
         </div>
         {% endif %}
     </div>
+
+    <script>
+        // Handle page breaks for printing
+        window.onbeforeprint = function() {
+            const contentBlocks = document.querySelectorAll('.daily-plan, .shopping-list-section');
+            contentBlocks.forEach(block => {
+                block.style.pageBreakInside = 'avoid';
+            });
+        };
+    </script>
 </body>
 </html>
+
+
+
+
 
